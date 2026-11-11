@@ -1,9 +1,18 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python"
+    }
+  ],
   "rewrites": [
     {
-      "source": "/feedback/((?!general).*)",
-      "destination": "/api/feedback/general"
+      "source": "/image.png",
+      "destination": "api/main.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "api/main.py"
     }
   ]
 }
